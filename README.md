@@ -1,34 +1,196 @@
-🫁 AI CHEST X-RAY DIAGNOSIS PROJECT 🤖
-📌 What is Pneumonia Detection?
-Pneumonia is a lung infection that makes breathing difficult and can become dangerous if it is not detected early. Doctors commonly use chest X-ray images 🖼 to identify pneumonia, but manual examination of X-ray images requires time and expertise. With the help of Artificial Intelligence (AI) 🤖, pneumonia detection can be automated, allowing faster analysis of chest X-ray images and supporting medical professionals in making timely decisions, especially during emergency situations 🚑.
+# 🫁 AI-Based Chest X-Ray Diagnosis System
 
-🎯 What is This Project?
-This project is an AI-Based Chest X-Ray Diagnosis System 🫁 developed using Python 🐍, Deep Learning 🧠, and Streamlit 🖥 technologies. The system analyzes chest X-ray images uploaded by users and predicts whether the lungs are 🟢 Normal or 🔴 Pneumonia. It uses a MobileNetV2 deep learning model 🤖 trained on chest X-ray datasets to recognize pneumonia patterns effectively. Additionally, the system includes a 🔥 Heatmap Visualization feature using Grad-CAM, which highlights infected lung regions in the X-ray image, making the prediction visually understandable and easy to interpret.
+[![Python Version](https://img.shields.io/badge/Python-3.10%2F3.11-blue?style=flat-square&logo=python&logoColor=white)](https://www.python.org/)
+[![Streamlit](https://img.shields.io/badge/Streamlit-FF4B4B?style=flat-square&logo=Streamlit&logoColor=white)](https://streamlit.io/)
+[![TensorFlow](https://img.shields.io/badge/TensorFlow-2.x-FF6F00?style=flat-square&logo=TensorFlow&logoColor=white)](https://www.tensorflow.org/)
+[![Keras](https://img.shields.io/badge/Keras-Red?style=flat-square&logo=Keras&logoColor=white)](https://keras.io/)
+[![OpenCV](https://img.shields.io/badge/OpenCV-5C3EE8?style=flat-square&logo=OpenCV&logoColor=white)](https://opencv.org/)
 
-🌟 Special Features
-This project provides a simple and user-friendly interface 🖥 that allows users to upload chest X-ray images easily and obtain results quickly. It detects both Normal and Pneumonia cases using a trained MobileNetV2 deep learning model 🤖. The system generates 🔥 heatmaps to highlight infected lung areas and displays prediction results along with confidence scores 📊. It also generates an AI-based medical report 📄 and supports real-time image processing ⚡, ensuring smooth performance and accurate results.
+An advanced, deep learning-powered medical imaging application that automatically detects **Pneumonia** from chest X-ray images. Built using **Transfer Learning (MobileNetV2)**, **Streamlit**, and **Explainable AI (Grad-CAM)** to assist medical professionals and screen cases rapidly.
 
-🧠 Technologies Used
-This project is developed using Python 🐍 along with advanced deep learning and image processing tools. The major technologies used include TensorFlow 🤖 and Keras 📚 for building and training the deep learning model, OpenCV 📷 for image processing tasks, NumPy 🔢 for numerical computations, Streamlit 🖥 for creating the web interface, Pillow 🖼 for handling image files, Grad-CAM 🔥 for generating heatmap visualizations, and MobileNetV2 🧠 as the base deep learning architecture.
+---
 
-🚀 How to Use This Project
-To run this project, first install the required libraries 📦 using the command pip install -r requirements.txt. After installing the dependencies, train the model 🧠 by running python train_model.py. This step is required only once and will generate the trained model file named chest_xray_model.h5 inside the model folder. Once the model is ready, start the Streamlit web application 🖥 using streamlit run app.py. After executing the command, open your browser 🌐 and visit http://localhost:8501
-. You can then upload a chest X-ray image 🖼 and view the prediction results along with heatmap visualization 🔥 and confidence score 📊.
+## 📖 Table of Contents
+- [🎯 Project Overview](#-project-overview)
+- [✨ Key Features](#-key-features)
+- [⚙️ How It Works (Architecture)](#%EF%B8%8F-how-it-works-architecture)
+- [📂 Project Structure](#-project-structure)
+- [🚀 Quick Start (Windows)](#-quick-start-windows)
+- [🛠️ Manual Installation & Running](#%EF%B8%8F-manual-installation--running)
+- [🧠 Model Training & Dataset](#-model-training--dataset)
+- [📋 System Requirements](#-system-requirements)
+- [⚠️ Medical Disclaimer](#%EF%B8%8F-medical-disclaimer)
+- [🔮 Future Improvements](#-future-improvements)
+- [📬 Contact & License](#-contact--license)
 
-📂 Project Files
-This project contains several important files required for its operation. The app.py 📄 file contains the Streamlit-based user interface that allows users to upload images. The predict.py 📄 file handles the prediction logic, while train_model.py 📄 is responsible for training the deep learning model. The requirements.txt 📄 file includes all required Python libraries needed to run the project. The dataset folder 📂 contains Normal and Pneumonia chest X-ray images used for training, and the model folder 📂 stores the trained deep learning model file.
+---
 
-🎯 Applications of This Project
-This AI-based chest X-ray diagnosis system can be used in various real-world scenarios. It can support 🏥 hospitals in early pneumonia screening and detection, assist 🧑‍⚕️ radiology departments in analyzing X-ray images efficiently, and help 🌍 rural healthcare centers where expert radiologists may not always be available. It is also useful for 🎓 medical research and academic learning and for demonstrating 🤖 Artificial Intelligence applications in healthcare systems.
+## 🎯 Project Overview
+Pneumonia is an inflammatory lung infection that can become life-threatening if not diagnosed early. Reading chest X-rays manually requires specialized radiological expertise and time. 
 
-🚀 Future Improvements
-This project can be further enhanced in several ways. In the future, it can be improved to 🔍 detect multiple lung diseases instead of only pneumonia. The model accuracy can be increased by training it with 📈 larger and more diverse datasets. The system can also be ☁ deployed on cloud platforms to make it accessible from anywhere. Additional improvements include developing a 📱 mobile application version and integrating the system with 🏥 hospital management systems for real-time usage.
+This project automates the screening process using a high-precision neural network. Crucially, it addresses the "black box" problem of AI in healthcare by employing **Grad-CAM** (Gradient-weighted Class Activation Mapping). This feature highlights the precise areas of consolidation and infection in the lungs, giving clinicians visual evidence to trust and verify the AI's conclusions.
 
-🔁 Clone This Project on GitHub
-This project can be cloned and customized for personal or educational use by running the following command:
-git clone https://github.com/akki864/your-repository-name.git
+---
 
-📬 Contact
-If you have any queries, suggestions, or feedback, feel free to contact me 😊
-📧 Email: akshaysaisree5@gmail.com
-🌐 GitHub: https://github.com/akki864
+## ✨ Key Features
+
+*   **⚡ Rapid Diagnosis**: Analyzes a chest X-ray image in under a second.
+*   **🔥 Explainable AI (Grad-CAM Heatmap)**: Generates a jet-colored visual overlay highlighting regions that influenced the model's decision the most.
+*   **🫁 Anatomical Localization**: Algorithmic intensity analysis of the heatmap to determine the affected lung side (**Left**, **Right**, or **Bilateral**) and depth zone (**Upper**, **Middle**, or **Lower**).
+*   **🖼️ Smart X-Ray Validation**: Custom image validation logic that analyzes color channel deviations (RGB variance) to prevent users from uploading non-X-ray images.
+*   **📄 Comprehensive AI Report**: Categorizes predictions into normal or pneumonia, displays confidence percentages, and estimates severity (Mild, Moderate, Severe).
+*   **🔊 AI Voice Explanation**: Reads the report out loud using the browser's built-in Web Speech API (`SpeechSynthesis`) for better accessibility.
+*   **🖥️ Premium User Interface**: Styled with custom CSS, containing responsive cards, progress bars, and tabbed interfaces.
+
+---
+
+## ⚙️ How It Works (Architecture)
+
+The workflow of the application from user upload to diagnosis reporting is shown below:
+
+```mermaid
+graph TD
+    A[User Uploads Image] --> B{X-Ray Validation<br/>RGB Variance < 10?}
+    B -- No --> C[Display Error: Invalid Image]
+    B -- Yes --> D[Preprocess Image<br/>Resize to 224x224 & Normalize]
+    D --> E[MobileNetV2 Model Prediction]
+    E --> F{Prediction > 0.5?}
+    F -- No --> G[Result: Normal]
+    F -- Yes --> H[Result: Pneumonia Detected]
+    G --> I[Generate Normal Report & Clear Lung Checkup Precautions]
+    H --> J[Run Grad-CAM Heatmap Generation]
+    J --> K[Superimpose Heatmap onto Original X-Ray]
+    K --> L[Analyze Heatmap Regions<br/>Side & Zone Localization]
+    L --> M[Generate Report + Severity + Affected Parts + Precautions]
+    I --> N[Display in Streamlit Interface & Enable Voice TTS]
+    M --> N
+```
+
+---
+
+## 📂 Project Structure
+
+Below is the directory structure of the project:
+
+```text
+AI_Chest_Xray_Project/
+│
+├── dataset/                     # Chest X-Ray Datasets
+│   ├── train/                   # Training split (used by train_model.py)
+│   │   ├── NORMAL/              # Healthy chest X-ray images
+│   │   └── PNEUMONIA/           # Pneumonia-infected chest X-ray images
+│   ├── val/                     # Validation split
+│   └── test/                    # Test split
+│
+├── model/                       # Serialized Deep Learning Models
+│   └── chest_xray_model.h5      # Trained MobileNetV2 model
+│
+├── .venv/                       # Python virtual environment (auto-created)
+├── app.py                       # Main Streamlit web application & UI
+├── predict.py                   # Prediction, Grad-CAM, & localization logic
+├── train_model.py               # Transfer learning & model training script
+├── requirements.txt             # Project library dependencies
+├── run_project.bat              # Setup & start script (Windows automated)
+├── heatmap.jpg                  # Temporary generated overlay image
+└── README.md                    # Project documentation
+```
+
+---
+
+## 🚀 Quick Start (Windows)
+
+If you are running on **Windows**, you don't need to manually configure virtual environments or install Python modules. We have provided a fully automated setup batch file:
+
+1. Double-click the **`run_project.bat`** file.
+2. The script will:
+   - Search for a local Python installation (supports Python 3.10 and 3.11).
+   - Clear any old or broken virtual environments.
+   - Construct a clean virtual environment (`.venv`).
+   - Upgrade `pip` and install all project dependencies from `requirements.txt`.
+   - Boot up the Streamlit web application.
+3. Once completed, a browser window will automatically launch at **`http://localhost:8501`**.
+
+---
+
+## 🛠️ Manual Installation & Running
+
+If you prefer to set up the project manually (or on macOS/Linux), run the following commands:
+
+### 1. Set Up Virtual Environment
+```bash
+# Create virtual environment
+python -m venv .venv
+
+# Activate virtual environment
+# On Windows:
+.venv\Scripts\activate
+# On macOS/Linux:
+source .venv/bin/activate
+```
+
+### 2. Install Dependencies
+```bash
+pip install --upgrade pip
+pip install -r requirements.txt
+```
+
+### 3. Run the App
+```bash
+streamlit run app.py
+```
+Open **`http://localhost:8501`** in your browser.
+
+---
+
+## 🧠 Model Training & Dataset
+
+The project uses transfer learning on a pre-trained **MobileNetV2** base architecture (with ImageNet weights). The base layers are frozen, and a custom classification head (`GlobalAveragePooling2D` -> `Dense` with `sigmoid` activation) is appended to predict a binary output (0 = Normal, 1 = Pneumonia).
+
+### Training your own model:
+1. Make sure you place your training images in `dataset/train/NORMAL` and `dataset/train/PNEUMONIA`.
+2. Run the training script:
+   ```bash
+   python train_model.py
+   ```
+3. The script will train the model for 5 epochs using Adam optimizer and binary crossentropy loss.
+4. The final model will be saved to `model/chest_xray_model.h5`.
+
+---
+
+## 📋 System Requirements
+
+- **Operating System**: Windows 10/11, macOS, or Linux.
+- **Python**: Version 3.10 or 3.11 is recommended.
+- **Dependencies**: Listed in `requirements.txt`. Key versions include:
+  - `tensorflow` (TensorFlow 2.x)
+  - `streamlit`
+  - `opencv-python`
+  - `numpy`
+  - `pillow`
+  - `keras`
+
+---
+
+## ⚠️ Medical Disclaimer
+
+> [!WARNING]
+> This application is a **screening tool and educational demonstration**. It is **not** a certified medical device and does **not** provide official medical diagnoses. Predictions and heatmap outputs should always be reviewed by a qualified radiologist or physician. Do not use this tool for clinical decision-making.
+
+---
+
+## 🔮 Future Improvements
+
+- [ ] **Multi-Disease Diagnostics**: Expand the model to classify additional lung pathologies like Tuberculosis, COVID-19, Atelectasis, and Pleural Effusion.
+- [ ] **Transformer Architectures**: Experiment with Vision Transformers (ViTs) or newer CNNs for improved localization precision.
+- [ ] **Cloud Hosting**: Deploy the system to cloud providers (Streamlit Community Cloud, AWS, or GCP) for global access.
+- [ ] **API Service**: Expose the backend prediction framework via FastAPI to connect with mobile and tablet applications.
+
+---
+
+## 📬 Contact & License
+
+- **Developer**: Akshay Saisree
+- **Email**: [akshaysaisree5@gmail.com](mailto:akshaysaisree5@gmail.com)
+- **GitHub**: [@akki864](https://github.com/akki864)
+
+*Feel free to star this repository or open issues for questions/features!*
